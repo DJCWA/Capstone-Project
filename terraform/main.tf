@@ -110,7 +110,7 @@ resource "aws_route_table_association" "private_assoc_2" {
 
 # ---------- S3 Bucket (random name) ----------
 resource "aws_s3_bucket" "dr_bucket" {
-  bucket = "group6-dr-demo-bucket-${random_id.suffix.hex}"
+  bucket = "group6-dr-demo-bucket"
 }
 
 # ---------- IAM Role (random name) ----------
