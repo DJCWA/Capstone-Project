@@ -1,3 +1,14 @@
+terraform {
+  backend "s3" {
+    bucket         = "group6-capstone-tf-state"
+    key            = "capstone/terraform.tfstate"
+    region         = "ca-central-1"
+    encrypt        = true
+    # comment out if you didn't create the table:
+    # dynamodb_table = "group6-capstone-tf-lock"
+  }
+}
+
 provider "aws" {
   region = "ca-central-1"
 }
