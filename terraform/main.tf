@@ -73,8 +73,13 @@ resource "aws_route_table_association" "public_assoc_2" {
 
 # ---------- NAT Gateway + Private Route Table ----------
 resource "aws_eip" "nat" {
-  vpc = true
+  domain = "vpc"
+
+  tags = {
+    Name = "group6-nat-eip-${random_id.suffix.hex}"
+  }
 }
+
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
