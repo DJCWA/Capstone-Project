@@ -301,7 +301,7 @@ resource "aws_db_instance" "app_db" {
   allocated_storage      = 20
   db_name                = "group6db"
   username               = "dbuser"
-  password               = "Group6StrongPwd123!" # demo only; use secrets in real life
+  password               = "Group6StrongPwd123!"
   db_subnet_group_name   = aws_db_subnet_group.db_subnets.name
   vpc_security_group_ids = [aws_security_group.db_sg.id]
   skip_final_snapshot    = true
@@ -399,15 +399,4 @@ resource "aws_autoscaling_group" "frontend_asg" {
   }
 }
 
-# ---------- Useful Outputs ----------
-output "alb_dns_name" {
-  value = aws_lb.frontend_alb.dns_name
-}
 
-output "rds_endpoint" {
-  value = aws_db_instance.app_db.endpoint
-}
-
-#output "s3_bucket_name" {
- # value = aws_s3_bucket.dr_bucket.bucket
-#}
